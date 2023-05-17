@@ -27,7 +27,11 @@ app.use(helmet());
 app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(morgan("common"));
 app.use(express.urlencoded({ limit: "30mb", extended: true }));
-app.use(cors());
+app.use(
+  cors({
+    origin: ["http://localhost:5173", "https://course-pr-front.onrender.com"],
+  })
+);
 app.use("/assets", express.static(path.join(__dirname, "public/assets")));
 
 //files
