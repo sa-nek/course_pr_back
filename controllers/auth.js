@@ -11,11 +11,11 @@ class AuthController {
         lastName,
         email,
         password,
-        picturePath,
         friends,
         location,
         occupation,
       } = req.body;
+      const picturePath = req.file.filename;
 
       const salt = await bcrypt.genSalt();
       const passwordHash = await bcrypt.hash(password, salt);
