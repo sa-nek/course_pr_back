@@ -15,7 +15,7 @@ class AuthController {
         location,
         occupation,
       } = req.body;
-      const picturePath = req.file.filename;
+      const picturePath = req.file?.filename || "";
 
       const salt = await bcrypt.genSalt();
       const passwordHash = await bcrypt.hash(password, salt);
