@@ -86,7 +86,7 @@ class PostsController {
     try {
       const { id } = req.params;
       const { comment } = req.body;
-      if (comment.length <= 2 || comment.length >= 10) {
+      if (comment.length <= 2 || comment.length >= 30) {
         res.status(400).json({ message: "failed" });
       } else {
         const updatedPost = await Post.findByIdAndUpdate(
