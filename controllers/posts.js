@@ -5,7 +5,8 @@ class PostsController {
   //create
   createPost = async (req, res) => {
     try {
-      const { description, picturePath } = req.body;
+      const { description } = req.body;
+      const picturePath = req.file.filename;
       const userId = req.user.id;
       const user = await User.findById(userId);
 
